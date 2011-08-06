@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+go_fetch()
+{
+  enter "${source_path}"
+  if command_exists hg
+  then
+    remove_paths "${source_path}/${package_dir}"
+    ensure_paths_exist "${source_path}"
+    enter "${source_path}"
+    #TODO: use fetch_uri !!!
+    hg clone -u release https://go.googlecode.com/hg/ "${source_path}/${package_dir}"
+  else
+    error "go requires mercurial, please install the mercurial bdsm package first."
+  fi
+}
+
+go_build()
+{
+  export GOROOT="${source_path}/${package_dir}"
+  enter "${source_path}/${package_dir}/src"
+  ./all.bash
+}
+
+go_install()
+{
+  local _path _paths _file _files
+
+  enter "${source_path}/${package_dir}"
+
+  for dir in pkg lib include bin misc src
+  do
+    _paths=($( find "${source_path}/${package_dir}/${dir}" -type d ))
+    for _path in "${_paths[@]}"
+    do
+      ensure_paths_exist "${install_path}${_path##${source_path}/${package_dir}}"
+    done
+
+    _files=($( find "${source_path}/${package_dir}/${dir}" -type f ))
+    for _file in "${_files[@]}"
+    do
+      cp -f "${_file}" "${install_path}${_file##${source_path}/${package_dir}}"
+    done
+  done
+}
+

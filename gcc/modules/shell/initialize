@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+package_definition \
+  base_url "http://mirror.rit.edu/gnu/gcc/gcc-${package_version}"
+
+for library in gmp mpfr mpc iconv
+do
+  if path_exists "${packages_path}/${library}/active"
+  then
+    configure_flags+=( --with-${library}="${packages_path}/active" )
+  else
+    error "${library} was not found installed via bdsm,"\
+      " install it and then retry."
+  fi
+done
+unset library
+
+if os_is_darwin
+then
+  # --build=${build_arch}-apple-darwin${os_major_version}
+  # TODO: allow --languages flag from CLI
+  # "--enable-languages=c,c++,objc,obj-c++,fortran"
+  configure_flags+=("--enable-fully-dynamic-string" "--enable-languages=c,objc,fortran")
+fi

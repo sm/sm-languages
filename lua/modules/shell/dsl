@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+lua_build()
+{
+  log "Building ${package_name} ${package_version}"
+  # Override make command based on platform type.
+  if os_is_linux
+  then
+    make linux
+  elif os_is_darwin
+  then
+    make darwin
+  elif os_is_solaris
+  then
+    make solaris
+  elif os_is_aix
+  then
+    make aix
+  else # posix...
+    make posix
+  fi
+}
+
+lua_install()
+{
+  log "Installing ${package_name} ${package_version}"
+  (
+  enter "src/"
+  copy_files to "${install_path}/bin" lua luac mode 0755
+  )
+
+  # TODO: Do we want any of the library files?
+}

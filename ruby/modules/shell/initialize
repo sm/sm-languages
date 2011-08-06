@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+package_definition \
+  base_url "http://ftp.ruby-lang.org/pub/ruby/${package_version%.*}"
+
+# static?
+# package_dependencies=(openssl iconv readline zlib)
+

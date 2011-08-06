@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ ! "${configure_flags[*]}" =~ *--prefix* ]]
+then
+  configure_flags+=(--prefix "${install_path}")
+fi
+

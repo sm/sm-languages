@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+package_definition \
+  base_url "http://haskell.org/ghc/dist/${package_version}" \
+  file "${package_name}-${package_version}-src.${archive_format}"
+
+#
+# http://haskell.org/ghc/download_ghc_7_0_2#distros
+#
+# haskell-platform
+# http://lambda.galois.com/hp-tmp/2011.2.0.0/haskell-platform-2011.2.0.0.tar.gz
+#

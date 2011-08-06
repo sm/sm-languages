@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set_package_type()
+{
+  if os_is_linux
+  then
+    if [[ "$(os_arch_type)" == "x86_64" ]]
+    then
+      package_type="linux64"
+    else
+      package_type="linux"
+    fi
+  elif os_is_darwin
+  then
+    package_type="osx64"
+  else
+    package_type="src"
+  fi
+
+  return 0
+}
+
+pypy_configure()
+{
+  case "${package_type}" in
+    src)
+      package_configure
+      ;;
+    *)
+      true # nothing to do here.
+      ;;
+  esac
+}
+
+pypy_build()
+{
+  case "${package_type}" in
+    src)
+      package_configure
+      ;;
+    *)
+      true # nothing to do here.
+      ;;
+  esac
+}
+
+pypy_install()
+{
+  case "${package_type}" in
+    src)
+      package_configure
+      ;;
+    *)
+      true # nothing to do here.
+      ;;
+  esac
+}
+

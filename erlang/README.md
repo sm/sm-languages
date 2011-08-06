@@ -1,0 +1,2 @@
+# Erlang Extension Template
+

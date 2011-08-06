@@ -1,0 +1,9 @@
+#pkg-config # to locate libffi files
+#zlib    # optional zlib module)
+#bz2     # optional bz2 module)
+#ncurses # optional _minimal_curses module)
+#expat1  # optional pyexpat module)
+#openssl # optional _ssl module)
+#gc-dev  # for the Boehm garbage collector: only needed when translating with –opt=0, 1 or size)
+#python-sphinx  # >= 1.0.7, for optional documentation build
+#python-greenlet # optional stackless support in interpreted mode/testing)

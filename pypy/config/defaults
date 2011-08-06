@@ -1,0 +1,3 @@
+version=1.5
+base_url=https://bitbucket.org/pypy/pypy/downloads
+archive_format=tar.bz2

@@ -1,0 +1,3 @@
+version=5.3.6
+base_url=http://www.php.net/distributions
+archive_format=tar.bz2

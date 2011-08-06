@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+package_definition \
+  file "otp_src_${package_version}.${archive_format}" \
+  dir "otp_src_${package_version}"
+
+package_dependencies=( ncurses openssl )
+
+configure_flags=(
+  --enable-hipe
+  --enable-smp-support
+  --enable-threads
+  --enable-kernel-poll
+)
+
+if os_is_darwin
+then
+  configure_flags[${#configure_flags[@]}]="--enable-darwin-64bit"
+fi
+
+# It is important to build single threaded,
+#   which is very amusing given it is for Erlang...
+make_flags="-j1"
+
