@@ -4,7 +4,7 @@ package_definition \
   file "otp_src_${package_version}.${archive_format}" \
   dir "otp_src_${package_version}"
 
-package_dependencies=( ncurses openssl )
+package_dependencies=( ncurses ) # openssl
 
 configure_flags=(
   --enable-hipe
