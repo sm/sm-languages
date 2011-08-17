@@ -6,7 +6,7 @@ package_definition \
 
 package_dependencies=( ncurses ) # openssl
 
-configure_flags=(
+configure_flags+=(
   --enable-hipe
   --enable-smp-support
   --enable-threads
@@ -15,7 +15,7 @@ configure_flags=(
 
 if os_is_darwin
 then
-  configure_flags[${#configure_flags[@]}]="--enable-darwin-64bit"
+  configure_flags+=("--enable-darwin-64bit")
 fi
 
 # It is important to build single threaded,
