@@ -7,7 +7,6 @@ erlang_initialize()
     dir "otp_src_${package_version}"
 
   configure_flags+=(
-  --prefix="${install_path}"
   --enable-hipe
   --enable-smp-support
   --enable-threads
