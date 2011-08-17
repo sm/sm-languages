@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+erlang_initialize()
+{
+  package_definition \
+    file "otp_src_${package_version}.${archive_format}" \
+    dir "otp_src_${package_version}"
+}
