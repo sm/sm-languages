@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 if [[ ! "${configure_flags[*]}" =~ *--prefix* ]]
 then

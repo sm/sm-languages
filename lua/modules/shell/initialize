@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 true "${package_dir:="${package_name}-${package_version}"}"
 

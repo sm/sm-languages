@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # perl-5.12.3$ sh Configure -h
 #

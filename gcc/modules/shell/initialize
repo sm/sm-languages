@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 package_definition \
   base_url "http://mirror.rit.edu/gnu/gcc/gcc-${package_version}"

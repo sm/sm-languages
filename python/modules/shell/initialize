@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 package_definition \
   base_url "http://www.python.org/ftp/python/${package_version}" \
