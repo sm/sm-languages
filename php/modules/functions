@@ -1,0 +1,44 @@
+#!/bin/sh
+
+php_initialize()
+{
+  case "${package_version}" in
+    (trunk)
+      package_definition \
+        file "php${package_version}.tar.bz2" \
+        dir "php${package_version}" \
+        url "http://snaps.php.net/php-trunk-latest.tar.bz2" \
+      ;;
+    (5.4*)
+      package_definition \
+        file "php${package_version}.tar.bz2" \
+        dir "php${package_version}" \
+        url "https://svn.php.net/repository/php/php-src/branches/PHP_5_4"
+      ;;
+    (*)
+      package_definition \
+        file "php${package_version}.tar.bz2" \
+        dir "php${package_version}"
+      ;;
+  esac
+}
+
+php_postfetch()
+{
+  local _path
+
+  case "${package_version}" in
+    (trunk)
+      path_exists php-trunk-* ||
+        error "Expected to find php-trunk-* archive and found nothing."
+
+      for _path in "${source_path}"/${package_dir}/php-trunk*/*
+      do
+        mv "$_path"/* "${source_path}/${package_dir}/"
+        remove_path "$_path"
+      done
+    (5.4*)
+      ;;
+  esac
+}
+

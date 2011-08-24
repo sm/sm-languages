@@ -1,5 +1,0 @@
-#!/bin/sh
-
-package_definition \
-  file "php${package_version}.tar.bz2"
-
