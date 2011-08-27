@@ -29,7 +29,7 @@ php_postfetch()
 
   case "${package_version}" in
     (trunk)
-      path_exists php-trunk-* ||
+      path exists php-trunk-* ||
         error "Expected to find php-trunk-* archive and found nothing."
 
       for _path in "${source_path}"/${package_dir}/php-trunk*/*

@@ -5,7 +5,7 @@ package_definition \
 
 for library in gmp mpfr mpc iconv
 do
-  if path_exists "${packages_path}/${library}/active"
+  if path exists "${packages_path}/${library}/active"
   then
     configure_flags+=( --with-${library}="${packages_path}/active" )
   else
