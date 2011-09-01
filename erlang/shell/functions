@@ -2,7 +2,7 @@
 
 erlang_initialize()
 {
-  package_definition \
+  package define \
     file "otp_src_${package_version}.${archive_format}" \
     dir "otp_src_${package_version}"
 
@@ -13,7 +13,7 @@ erlang_initialize()
   --enable-kernel-poll
   )
 
-  if os_is_darwin
+  if os is darwin
   then
     configure_flags+=("--enable-darwin-64bit")
   fi

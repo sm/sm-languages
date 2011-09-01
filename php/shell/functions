@@ -4,19 +4,19 @@ php_initialize()
 {
   case "${package_version}" in
     (trunk)
-      package_definition \
+      package define \
         file "php${package_version}.tar.bz2" \
         dir "php${package_version}" \
         url "http://snaps.php.net/php-trunk-latest.tar.bz2" \
       ;;
     (5.4*)
-      package_definition \
+      package define \
         file "php${package_version}.tar.bz2" \
         dir "php${package_version}" \
         url "https://svn.php.net/repository/php/php-src/branches/PHP_5_4"
       ;;
     (*)
-      package_definition \
+      package define \
         file "php${package_version}.tar.bz2" \
         dir "php${package_version}"
       ;;

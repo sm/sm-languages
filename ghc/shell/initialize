@@ -1,6 +1,6 @@
 #!/bin/sh
 
-package_definition \
+package define \
   base_url "http://haskell.org/ghc/dist/${package_version}" \
   file "${package_name}-${package_version}-src.${archive_format}"
 

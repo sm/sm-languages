@@ -2,7 +2,7 @@
 
 set_package_type()
 {
-  if os_is_linux
+  if os is linux
   then
     if [[ "$(os_arch_type)" == "x86_64" ]]
     then
@@ -10,7 +10,7 @@ set_package_type()
     else
       package_type="linux"
     fi
-  elif os_is_darwin
+  elif os is darwin
   then
     package_type="osx64"
   else
