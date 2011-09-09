@@ -2,12 +2,12 @@
 
 go_fetch()
 {
-  paths enter "${source_path}"
-  if command_exists hg
+  path enter "${source_path}"
+  if command exists hg
   then
-    paths remove "${source_path}/${package_dir}"
-    paths create "${source_path}"
-    paths enter "${source_path}"
+    path remove "${source_path}/${package_dir}"
+    path create "${source_path}"
+    path enter "${source_path}"
     #TODO: use fetch_uri !!!
     hg clone -u release https://go.googlecode.com/hg/ "${source_path}/${package_dir}"
   else
@@ -18,7 +18,7 @@ go_fetch()
 go_build()
 {
   export GOROOT="${source_path}/${package_dir}"
-  paths enter "${source_path}/${package_dir}/src"
+  path enter "${source_path}/${package_dir}/src"
   ./all.bash
 }
 

@@ -34,8 +34,8 @@ php_postfetch()
 
       for _path in "${source_path}"/${package_dir}/php-trunk*/*
       do
-        mv "$_path"/* "${source_path}/${package_dir}/"
-        remove_path "$_path"
+        files move to "${source_path}/${package_dir}/" "$_path"/*
+        path remove "$_path"
       done
     (5.4*)
       ;;
