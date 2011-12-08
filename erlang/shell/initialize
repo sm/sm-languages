@@ -1,4 +1,6 @@
 #!/bin/sh
 
+typeset -g make_flags
+
 # package_dependencies=( ncurses ) # openssl
 
