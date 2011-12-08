@@ -1,4 +1,4 @@
 #!/bin/sh
 
-package_dependencies=( ncurses ) # openssl
+# package_dependencies=( ncurses ) # openssl
 
