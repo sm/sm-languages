@@ -3,6 +3,7 @@
 go_fetch()
 {
   path enter "${source_path}"
+
   if command exists hg
   then
     path remove "${source_path}/${package_dir}"
@@ -11,7 +12,7 @@ go_fetch()
     #TODO: use fetch_uri !!!
     hg clone -u release https://go.googlecode.com/hg/ "${source_path}/${package_dir}"
   else
-    error "go requires mercurial, please install the mercurial bdsm package first."
+    log error "go requires mercurial, please install the mercurial bdsm package first."
   fi
 }
 
