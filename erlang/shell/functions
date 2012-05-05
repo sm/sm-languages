@@ -21,5 +21,5 @@ erlang_initialize()
   # It is important to build single threaded,
   #   which is very amusing given it is for Erlang...
   make_flags="-j1"
-
 }
+
