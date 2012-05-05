@@ -1,2 +1,3 @@
-version=1.9.2-p290
-archive_format=tar.bz2
+version=1.9.3-p194
+package_extension=tar.bz2
+package_dependencies=openssl readline zlib libyaml
