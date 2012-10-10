@@ -7,19 +7,14 @@ erlang_initialize()
     dir "otp_src_${package_version}"
 
   configure_flags+=(
-  --enable-hipe
-  --enable-smp-support
-  --enable-threads
-  --enable-kernel-poll
+    --enable-hipe
+    --enable-smp-support
+    --enable-threads
+    --enable-kernel-poll
   )
 
   if os is darwin
-  then
-    configure_flags+=("--enable-darwin-64bit")
+  then configure_flags+=("--enable-darwin-64bit")
   fi
-
-  # It is important to build single threaded,
-  #   which is very amusing given it is for Erlang...
-  make_flags="-j1"
 }
 

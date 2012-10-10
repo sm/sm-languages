@@ -2,3 +2,4 @@ version=R14B04
 base_url=http://www.erlang.org/download
 archive_format=tar.gz
 # package_dependencies=ncurses openssl
+make_flags=-j 1
